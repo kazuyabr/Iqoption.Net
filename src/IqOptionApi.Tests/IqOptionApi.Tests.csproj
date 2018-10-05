@@ -1,0 +1,60 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net461</TargetFramework>
+    <Configurations>Debug;Release;Pack</Configurations>
+
+    
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="converters\**" />
+    <Compile Remove="http\**" />
+    <Compile Remove="JsonTest\**" />
+    <Compile Remove="ws\**" />
+    <EmbeddedResource Remove="converters\**" />
+    <EmbeddedResource Remove="http\**" />
+    <EmbeddedResource Remove="JsonTest\**" />
+    <EmbeddedResource Remove="ws\**" />
+    <None Remove="converters\**" />
+    <None Remove="http\**" />
+    <None Remove="JsonTest\**" />
+    <None Remove="ws\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="BaseUnitTest.cs" />
+    <Compile Remove="IqOptionApiTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
+    <PackageReference Include="shouldly" Version="3.0.1" />
+    <PackageReference Include="Serilog" Version="2.6.0" />
+    <PackageReference Include="WindowsBase" Version="4.6.1055" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\tests\AutofacContrib.Nsubstitute\AutofacContrib.Nsubstitute.csproj" />
+    <ProjectReference Include="..\IqOptionApi.TestHelpers\IqOptionApi.TestHelpers.csproj" />
+    <ProjectReference Include="..\iqoptionapi\IqOptionApi.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    
+
+    <None Update="appsettings.Debug.json">
+      <IsTransformFile>true</IsTransformFile>
+      <DependentUpon>appsettings.json</DependentUpon>
+    </None>
+    <None Update="appsettings.json">
+      <TransformOnBuild>true</TransformOnBuild>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="appsettings.Release.json">
+      <IsTransformFile>true</IsTransformFile>
+      <DependentUpon>appsettings.json</DependentUpon>
+    </None>
+  </ItemGroup>
+
+</Project>

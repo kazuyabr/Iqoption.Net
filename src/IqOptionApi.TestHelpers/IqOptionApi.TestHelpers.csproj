@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net461</TargetFramework>
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <Title>IqOptionApi.TestHelpers</Title>
+    <Authors>Mongkon Eiadon</Authors>
+    <Company>Mongkon Eiadon</Company>
+    <Copyright>Copyright (c) Mongkon Eiadon 207 - 2018</Copyright>
+    <Description>
+      Test Helpers for IqOptionApi Tests Projects
+    </Description>
+    <PackageTags>IqOption Api</PackageTags>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/MongkonEiadon/Iqoption.Net</RepositoryUrl>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <PackageReleaseNotes>UPDATED BY BUILD</PackageReleaseNotes>
+  </PropertyGroup>
+
+  
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" Version="5.4.2" />
+    <PackageReference Include="NUnit" Version="3.10.1" />
+    <PackageReference Include="shouldly" Version="3.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\tests\AutofacContrib.Nsubstitute\AutofacContrib.Nsubstitute.csproj" />
+    <ProjectReference Include="..\iqoptionapi\IqOptionApi.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Json\*\*.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

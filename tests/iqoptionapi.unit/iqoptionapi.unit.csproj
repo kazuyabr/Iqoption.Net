@@ -24,14 +24,14 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
     <PackageReference Include="Microsoft.VisualStudio.SlowCheetah" Version="3.1.66" />
-    <PackageReference Include="shouldly" Version="3.0.0" />
+    <PackageReference Include="shouldly" Version="3.0.1" />
     <PackageReference Include="xunit" Version="2.4.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
-    <PackageReference Include="microsoft.extensions.dependencyinjection" Version="2.0.0" />
+    <PackageReference Include="microsoft.extensions.dependencyinjection" Version="2.1.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\IqOptionApi\IqOptionApi.csproj" />
+    <ProjectReference Include="..\..\src\iqoptionapi\IqOptionApi.csproj" />
     <ProjectReference Include="..\AutofacContrib.Nsubstitute\AutofacContrib.Nsubstitute.csproj" />
   </ItemGroup>
 

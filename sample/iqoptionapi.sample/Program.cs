@@ -22,7 +22,7 @@ namespace iqoptionapi.sample
 
                 Console.WriteLine("IqOption.NET Sample");
 
-                var app = provider.GetService<TradingExample>().RunSample();
+                var app = provider.GetService<Startup>().RunSample();
 
 
             }
