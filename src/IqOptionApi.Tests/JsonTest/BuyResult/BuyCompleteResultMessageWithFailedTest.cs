@@ -1,10 +1,11 @@
 ﻿using iqoptionapi.ws.result;
+using IqOptionApi.TestHelpers;
 using NUnit.Framework;
 using Shouldly;
 
-namespace IqOptionApi.TestHelpers.JsonTest.BuyResult {
+namespace IqOptionApi.Tests.JsonTest.BuyResult {
     [JsonTest("buyFailed")]
-    public class BuyFailedTest : JsonTestSuiteFor<BuyCompleteResultMessage> {
+    public class BuyCompleteResultMessageWithFailedTest : JsonTestSuiteFor<BuyCompleteResultMessage> {
         [Test]
         public void LoadBuyComplete_WithSuccessResult_DateTimeConverted() {
             // assert

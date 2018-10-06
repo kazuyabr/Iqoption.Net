@@ -9,18 +9,18 @@
     <Title>IqOption Api</Title>
     <Authors>Mongkon Eiadon</Authors>
     <Company>Monngkon Eiadon</Company>
-    <Copyright>Copyright (c) Mongkon 2018</Copyright>
+    <Copyright>Copyright (c) Mongkon 2017 - 2018</Copyright>
     <Description>Iqoption Api for .NET - https://github.com/MongkonEiadon/Iqoption.Net</Description>
     <PackageTags>IqOption Api</PackageTags>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/MongkonEiadon/Iqoption.Net</RepositoryUrl>
     <PackageProjectUrl>https://mongkoneiadon.github.io/Iqoption.Net/</PackageProjectUrl>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <PackageReleaseNotes>Fix Http Login</PackageReleaseNotes>
+    <PackageReleaseNotes>Fix to support Di</PackageReleaseNotes>
     <NoWarn>1701;1702;1705;1591</NoWarn>
     <AssemblyVersion>1.1.0.0</AssemblyVersion>
     <FileVersion>1.1.0.0</FileVersion>
-    <Version>1.1.0.4</Version>
+    <Version>1.2.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.0'">

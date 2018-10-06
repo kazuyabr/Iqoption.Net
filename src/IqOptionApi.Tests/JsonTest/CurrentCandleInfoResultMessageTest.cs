@@ -1,11 +1,12 @@
 ﻿using IqOptionApi.Models;
+using IqOptionApi.TestHelpers;
 using IqOptionApi.ws;
 using NUnit.Framework;
 using Shouldly;
 
-namespace IqOptionApi.TestHelpers.JsonTest {
+namespace IqOptionApi.Tests.JsonTest {
     [JsonTest("candle-generated")]
-    public class CurrentCandleTest : JsonTestSuiteFor<CurrentCandleInfoResultMessage> {
+    public class CurrentCandleInfoResultMessageTest : JsonTestSuiteFor<CurrentCandleInfoResultMessage> {
         [Test]
         public void GetCandlesResult_WithFromAndTo_DateTimeMustSetCorrectly() {
             // assert

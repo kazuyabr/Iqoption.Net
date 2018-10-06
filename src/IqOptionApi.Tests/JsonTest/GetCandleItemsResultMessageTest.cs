@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Linq;
+using IqOptionApi.TestHelpers;
 using IqOptionApi.ws;
 using NUnit.Framework;
 using Shouldly;
 
-namespace IqOptionApi.TestHelpers.JsonTest {
+namespace IqOptionApi.Tests.JsonTest {
     [JsonTest("GetCandles_Success")]
-    public class GetCandlesResultTest : JsonTestSuiteFor<GetCandleItemsResultMessage> {
+    public class GetCandleItemsResultMessageTest : JsonTestSuiteFor<GetCandleItemsResultMessage> {
         [Test]
         public void GetCandlesResult_CandlesItems_ResultMustReturnSuccess() {
             //assert

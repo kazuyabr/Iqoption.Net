@@ -26,6 +26,15 @@
     <Compile Remove="BaseUnitTest.cs" />
     <Compile Remove="IqOptionApiTest.cs" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="JsonTest\BuyResult\BuyCompleteResultMessageTest.cs" />
+    <Compile Include="JsonTest\BuyResult\BuyCompleteResultMessageWithFailedTest.cs" />
+    <Compile Include="JsonTest\CurrentCandleInfoResultMessageTest.cs" />
+    <Compile Include="JsonTest\GetCandleItemsResultMessageTest.cs" />
+    <Compile Include="JsonTest\HeartBeatTest.cs" />
+    <Compile Include="JsonTest\ServerTimeTest.cs" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
     <PackageReference Include="shouldly" Version="3.0.1" />

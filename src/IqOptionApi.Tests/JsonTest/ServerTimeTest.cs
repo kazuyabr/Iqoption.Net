@@ -1,34 +1,26 @@
 ﻿using System;
 using IqOptionApi.Models;
-using Newtonsoft.Json;
+using IqOptionApi.TestHelpers;
+using NUnit.Framework;
 using Shouldly;
-using Xunit;
 
 namespace IqOptionApi.Tests.JsonTest {
-    public class ServerTimeTest : IClassFixture<LoadJsonFileTest> {
-        private readonly LoadJsonFileTest _loader;
-
-
-        private string Json { get;  }
-        public ServerTimeTest(LoadJsonFileTest loader) {
-            _loader = loader;
-
-            Json = _loader.LoadJson("timesync.json");
-        }
-
-
-        [Fact]
+    [JsonTest("timesync")]
+    public class ServerTimeTest : JsonTestSuiteFor<ServerTime> {
+        [Test]
         public void GetTimeSync_WithExistingValue_DateTimeOffsetConvertedCorrected() {
-
-            // act
-            var result = JsonConvert.DeserializeObject<ServerTime>(Json);
-
 
             // assert
             var dt = DateTimeOffset.FromUnixTimeMilliseconds(1534749220468);
 
-            result.ShouldNotBeNull();
-            result.Message.ShouldBe(dt);
+            Suite.ShouldNotBeNull();
+            Suite.Message.ShouldBe(dt);
+        }
+
+        [Test]
+        public void GettimeSync_WithReadFromFile_FileValid() {
+            Suite.Message.ShouldNotBeNull();
+            Suite.Name.ShouldBe("timeSync");
         }
     }
 }

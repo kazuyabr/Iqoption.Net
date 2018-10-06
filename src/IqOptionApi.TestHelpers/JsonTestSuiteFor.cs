@@ -5,16 +5,16 @@ using System.Linq;
 using System.Reflection;
 using Newtonsoft.Json;
 using NUnit.Framework;
-using Shouldly;
 
-namespace IqOptionApi.TestHelpers.JsonTest {
+namespace IqOptionApi.TestHelpers {
+
     public abstract class JsonTestSuiteFor<T> : TestFor<T> {
 
         private IDictionary<string, string> JsonPathList;
 
         private string Json { get; set; }
 
-        [SetUp]
+        [OneTimeSetUp]
         public void Setup() {
             JsonPathList = new Dictionary<string, string>();
 

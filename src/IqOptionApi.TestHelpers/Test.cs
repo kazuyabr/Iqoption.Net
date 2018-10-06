@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Reflection;
 using AutofacContrib.NSubstitute;
-using IqOptionApi.TestHelpers.JsonTest;
 
 namespace IqOptionApi.TestHelpers
 {

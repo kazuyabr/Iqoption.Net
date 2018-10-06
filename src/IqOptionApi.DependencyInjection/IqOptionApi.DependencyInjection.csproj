@@ -2,6 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>1.2.0</Version>
+    <Authors>Mongkon Eiadon</Authors>
+    <Description>Dependency Injection to support IqOptionApi</Description>
+    <Copyright>Copyright (c) Mongkon 2017 - 2018</Copyright>
+    <PackageProjectUrl>https://mongkoneiadon.github.io/Iqoption.Net/</PackageProjectUrl>
+    <RepositoryUrl>https://mongkoneiadon.github.io/Iqoption.Net/</RepositoryUrl>
+    <PackageTags>API IqOption DependencyInjection</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace IqOptionApi.TestHelpers.JsonTest {
+namespace IqOptionApi.TestHelpers {
     public class JsonTestAttribute : Attribute {
         public JsonTestAttribute(string fileName) {
             FileName = fileName;
