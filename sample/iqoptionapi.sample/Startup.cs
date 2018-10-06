@@ -8,44 +8,36 @@ using Serilog;
 
 namespace iqoptionapi.sample {
     public class Startup {
-        private readonly IqOptionConfiguration _config;
+        private readonly IIqOptionApi _api;
         private readonly ILogger _logger;
 
-        public Startup(IqOptionConfiguration config, Serilog.ILogger logger)
-        {
-            _config = config;
+        public Startup(IIqOptionApi api, Serilog.ILogger logger) {
+            _api = api;
             _logger = logger;
         }
 
-        
-
         public async Task RunSample() {
 
-            var api = new IqOptionApi.IqOptionApi(_config.Email, _config.Password);
-            _logger.Information($"Connecting to {_config.Host} for {_config.Email}");
-
-
-            if (await api.ConnectAsync()) {
+            if (await _api.ConnectAsync()) {
                 _logger.Information("Connect Success");
 
                 //get profile
-                var profile = await api.GetProfileAsync();
-                _logger.Information($"Success Get Profile for {_config.Email}");
+                var profile = await _api.GetProfileAsync();
 
 
                 // open order EurUsd in smallest period (1min) 
                 var exp = DateTime.Now.AddMinutes(1);
-                var buyResult = await api.BuyAsync(ActivePair.EURUSD, 1, OrderDirection.Call, exp);
-
+                var buyResult = await _api.BuyAsync(ActivePair.EURUSD, 1, OrderDirection.Call, exp);
+                
 
                 // get candles data
-                var candles = await api.GetCandlesAsync(ActivePair.EURUSD, TimeFrame.Min1, 100, DateTimeOffset.Now);
+                var candles = await _api.GetCandlesAsync(ActivePair.EURUSD, TimeFrame.Min1, 100, DateTimeOffset.Now);
                 _logger.Information($"CandleCollections received {candles.Count}");
 
                 
                 // subscribe to pair to get real-time data for tf1min and tf5min
-                var streamMin1 = await api.SubscribeRealtimeDataAsync(ActivePair.EURUSD, TimeFrame.Min1);
-                var streamMin5 = await api.SubscribeRealtimeDataAsync(ActivePair.EURUSD, TimeFrame.Min5);
+                var streamMin1 = await _api.SubscribeRealtimeDataAsync(ActivePair.EURUSD, TimeFrame.Min1);
+                var streamMin5 = await _api.SubscribeRealtimeDataAsync(ActivePair.EURUSD, TimeFrame.Min5);
 
                 streamMin5.Merge(streamMin1)
                     .Subscribe(candleInfo => {
@@ -53,7 +45,7 @@ namespace iqoptionapi.sample {
                 });
 
                 // after this line no-more realtime data for min5 print on console
-                await api.UnSubscribeRealtimeData(ActivePair.EURUSD, TimeFrame.Min5);
+                await _api.UnSubscribeRealtimeData(ActivePair.EURUSD, TimeFrame.Min5);
 
                
                 //when price down with 

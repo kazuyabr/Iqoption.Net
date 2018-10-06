@@ -33,7 +33,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Json\*\*.json">
+    <None Update="Json\*.*">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Json\**\*.*">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

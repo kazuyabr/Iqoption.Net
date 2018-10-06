@@ -3,6 +3,7 @@ using System.IO;
 using System.Net.Mime;
 using System.Security.Cryptography.X509Certificates;
 using IqOptionApi;
+using IqOptionApi.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Memory;
 using Microsoft.Extensions.DependencyInjection;
@@ -53,11 +54,12 @@ namespace iqoptionapi.sample
             services
                 .AddSingleton<Serilog.ILogger>(logging)
                 .AddSingleton(configuration)
-                .AddSingleton(new IqOptionConfiguration()
-                {
-                    Email = configuration["iqoption:email"],
-                    Password = configuration["iqoption:password"]
-                })
+                .AddIqOption(cfg =>
+                        cfg.UseEmailAddress(configuration["iqoption:email"])
+                            .UsePassword(configuration["iqoption:password"])
+                            .UseLogger(logging)
+                    )
+              
                 .AddSingleton<TradingExample>()
                 .AddSingleton<Startup>();
 

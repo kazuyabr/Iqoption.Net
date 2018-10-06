@@ -1,21 +1,14 @@
 ﻿using System;
-using System.Linq;
+using System.IO;
 
 namespace IqOptionApi.TestHelpers.JsonTest {
     public class JsonFileTest : IDisposable {
-
-        public JsonFileTest() {
-
-        }
-        public string LoadJson(string fileName) {
-
-            var JSON = System.IO.File.ReadAllText($"Json\\{fileName}");
-            return JSON;
-        }
-
-
         public void Dispose() {
+        }
 
+        public string LoadJson(string fileName) {
+            var JSON = File.ReadAllText($"Json\\{fileName}");
+            return JSON;
         }
     }
 }

@@ -19,9 +19,4 @@
     <ProjectReference Include="..\IqOptionApi.TestHelpers\IqOptionApi.TestHelpers.csproj" />
   </ItemGroup>
 
-
-  <ItemGroup>
-    <Folder Include="UnitTests\" />
-  </ItemGroup>
-
 </Project>

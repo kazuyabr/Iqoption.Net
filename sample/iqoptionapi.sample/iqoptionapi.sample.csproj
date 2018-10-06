@@ -26,6 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\IqOptionApi.DependencyInjection\IqOptionApi.DependencyInjection.csproj" />
     <ProjectReference Include="..\..\src\iqoptionapi\IqOptionApi.csproj" />
   </ItemGroup>
 

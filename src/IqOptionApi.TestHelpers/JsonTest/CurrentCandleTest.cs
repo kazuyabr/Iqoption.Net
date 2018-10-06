@@ -1,32 +1,17 @@
 ﻿using IqOptionApi.Models;
-using IqOptionApi.Tests.JsonTest;
 using IqOptionApi.ws;
-using Newtonsoft.Json;
 using NUnit.Framework;
 using Shouldly;
 
 namespace IqOptionApi.TestHelpers.JsonTest {
-    public class CurrentCandleTest : TestFor<JsonFileTest> {
-        public CurrentCandleTest(JsonFileTest jsonFileTest) {
-            _jsonFileTest = jsonFileTest;
-
-            Json = _jsonFileTest.LoadJson("subscribeMessage\\candle-generated.json");
-        }
-
-        private readonly JsonFileTest _jsonFileTest;
-
-        private string Json { get; }
-
+    [JsonTest("candle-generated")]
+    public class CurrentCandleTest : JsonTestSuiteFor<CurrentCandleInfoResultMessage> {
         [Test]
         public void GetCandlesResult_WithFromAndTo_DateTimeMustSetCorrectly() {
-
-            //act
-            var result = JsonConvert.DeserializeObject<CurrentCandleInfoResultMessage>(Json);
-
             // assert
-            result.ShouldNotBeNull();
+            Suite.ShouldNotBeNull();
 
-            var candles = result.Message;
+            var candles = Suite.Message;
             candles.ShouldNotBeNull();
             candles.ActivePair.ShouldBe(ActivePair.EURUSD);
 
@@ -47,8 +32,6 @@ namespace IqOptionApi.TestHelpers.JsonTest {
             candles.To.Year.ShouldBe(2018);
             candles.To.Month.ShouldBe(08);
             candles.To.Day.ShouldBe(20);
-
-
         }
     }
 }

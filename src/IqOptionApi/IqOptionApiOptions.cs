@@ -33,7 +33,7 @@ namespace IqOptionApi {
             return new Lazy<IIqOptionApi>(() => {
                     var api = new IqOptionApi(Configuration.Email, Configuration.Password, Configuration.Host);
 
-                    api.ConnectAsync().ConfigureAwait(false);
+                    api.ConnectAsync().Wait();
                     return api;
                 }
             );

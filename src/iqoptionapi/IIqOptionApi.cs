@@ -12,7 +12,6 @@ namespace IqOptionApi {
         IObservable<InfoData[]> InfoDatasObservable { get; }
         Profile Profile { get; }
         bool IsConnected { get; }
-        IObservable<bool> IsConnectedObservable { get; }
 
         Task<bool> ConnectAsync();
         Task<Profile> GetProfileAsync();

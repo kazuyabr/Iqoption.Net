@@ -20,8 +20,7 @@ namespace IqOptionApi {
 
         private readonly ILogger _logger = IqOptionLoggerFactory.CreateLogger();
         private readonly Subject<Profile> _profileSubject = new Subject<Profile>();
-
-        private readonly Subject<bool> connectedSubject = new Subject<bool>();
+        
         private Profile _profile;
 
         #endregion
@@ -47,15 +46,11 @@ namespace IqOptionApi {
         //obs
         public IObservable<InfoData[]> InfoDatasObservable => WsClient?.InfoDataObservable;
         public IObservable<Profile> ProfileObservable => _profileSubject.Publish().RefCount();
-        public IObservable<bool> IsConnectedObservable => connectedSubject.Publish().RefCount();
         public IObservable<BuyResult> BuyResultObservable => WsClient?.BuyResultObservable;
 
         #endregion
 
-
-
         public Task<bool> ConnectAsync() {
-            connectedSubject.OnNext(false);
             IsConnected = false;
 
             var tcs = new TaskCompletionSource<bool>();
@@ -72,7 +67,6 @@ namespace IqOptionApi {
                             SubscribeWebSocket();
 
                             IsConnected = true;
-                            connectedSubject.OnNext(true);
                             tcs.TrySetResult(true);
                             return;
                         }
@@ -132,12 +126,8 @@ namespace IqOptionApi {
         }
 
         public void Dispose() {
-            connectedSubject?.Dispose();
             WsClient?.Dispose();
         }
-
-
-      
 
         /// <summary>
         /// listen to all obs, for make all properties updated
@@ -154,8 +144,6 @@ namespace IqOptionApi {
             //subscribe for instrument updated
             WsClient.InstrumentResultSetObservable
                 .Subscribe(x => Instruments = x);
-
-
         }
 
         #region [Ctor]
